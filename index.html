@@ -91,9 +91,14 @@
     border-bottom: 1px solid var(--border);
     padding: 0 12px;
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-x;
     white-space: nowrap;
-    scrollbar-width: none;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
   }
+  .tabs-wrap::-webkit-scrollbar { height: 3px; }
+  .tabs-wrap::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 2px; }
   .tabs-wrap::-webkit-scrollbar { display: none; }
   .tabs {
     display: inline-flex;
@@ -332,8 +337,10 @@
   ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
 
   /* ── PIN TABLE ───────────────────────────────────────────── */
+  .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; width: 100%; }
   table.pin-table {
     width: 100%;
+    min-width: 380px;
     border-collapse: collapse;
     font-size: 12px;
   }
@@ -390,12 +397,293 @@
      PANEL: DASAR
 ════════════════════════════════════════════════════════════ -->
 <div class="panel active" id="panel-dasar">
+
+  <div class="sec-title" style="margin-top:4px">🔩 Ilustrasi Komponen</div>
+  <div class="card">
+    <div class="card-body">
+      <div class="comp-gallery">
+        <div class="comp-card">
+          <svg viewBox="0 0 200 130" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:200px">
+  <rect width="200" height="130" fill="#0d1117"/>
+  <!-- Resistor -->
+  <line x1="10" y1="65" x2="35" y2="65" stroke="#aaa" stroke-width="2"/>
+  <rect x="35" y="55" width="45" height="20" rx="6" fill="#c8a000" stroke="#e3b341" stroke-width="1.5"/>
+  <!-- Resistor bands -->
+  <rect x="46" y="55" width="4" height="20" fill="#ff4444"/>
+  <rect x="56" y="55" width="4" height="20" fill="#ff4444"/>
+  <rect x="66" y="55" width="4" height="20" fill="#8b4513"/>
+  <line x1="80" y1="65" x2="105" y2="65" stroke="#aaa" stroke-width="2"/>
+  <!-- LED body -->
+  <polygon points="105,50 105,80 130,65" fill="#ff4444" stroke="#ff7b72" stroke-width="1.5"/>
+  <line x1="130" y1="50" x2="130" y2="80" stroke="#ff7b72" stroke-width="2"/>
+  <line x1="130" y1="65" x2="160" y2="65" stroke="#aaa" stroke-width="2"/>
+  <!-- LED leads labels -->
+  <text x="107" y="90" fill="#8b949e" font-size="8" font-family="monospace">+Anoda</text>
+  <text x="122" y="90" fill="#8b949e" font-size="8" font-family="monospace">  -Katoda</text>
+  <!-- Light rays from LED -->
+  <line x1="135" y1="50" x2="150" y2="38" stroke="#ffd700" stroke-width="1.5" stroke-dasharray="3,2"/>
+  <line x1="140" y1="55" x2="158" y2="46" stroke="#ffd700" stroke-width="1.5" stroke-dasharray="3,2"/>
+  <line x1="142" y1="46" x2="155" y2="32" stroke="#ffd700" stroke-width="1" stroke-dasharray="2,2" opacity="0.5"/>
+  <!-- GND line -->
+  <line x1="160" y1="65" x2="185" y2="65" stroke="#8b949e" stroke-width="2"/>
+  <line x1="183" y1="55" x2="183" y2="75" stroke="#8b949e" stroke-width="2.5"/>
+  <line x1="178" y1="60" x2="188" y2="60" stroke="#8b949e" stroke-width="1.5"/>
+  <line x1="180" y1="70" x2="186" y2="70" stroke="#8b949e" stroke-width="1"/>
+  <!-- Labels -->
+  <text x="8"  y="58" fill="#3fb950" font-size="8" font-family="monospace">5V</text>
+  <text x="185" y="58" fill="#8b949e" font-size="8" font-family="monospace">⏚</text>
+  <text x="50" y="52" fill="#8b949e" font-size="7.5" font-family="monospace">220Ω</text>
+  <text x="100" y="15" text-anchor="middle" fill="#e3b341" font-size="9" font-family="monospace">LED + Resistor 220Ω</text>
+</svg>
+          <div class="comp-name">LED + Resistor</div>
+        </div>
+        <div class="comp-card">
+          <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:200px">
+  <rect width="200" height="160" fill="#0d1117"/>
+  <!-- PCB board -->
+  <rect x="20" y="20" width="160" height="100" rx="6" fill="#1a3d1a" stroke="#2d6b2d" stroke-width="1.5"/>
+  <!-- LM393 chip -->
+  <rect x="65" y="45" width="50" height="30" rx="3" fill="#1a1a2e" stroke="#444" stroke-width="1"/>
+  <text x="90" y="65" text-anchor="middle" fill="#888" font-size="7" font-family="monospace">LM393</text>
+  <!-- LDR component on board -->
+  <circle cx="42" cy="75" r="14" fill="#c8a000" stroke="#e3b341" stroke-width="1.5"/>
+  <polyline points="34,75 38,69 42,81 46,69 50,75" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="42" y="102" text-anchor="middle" fill="#8b949e" font-size="8" font-family="monospace">LDR</text>
+  <!-- Potentiometer -->
+  <rect x="140" y="60" width="18" height="18" rx="3" fill="#444" stroke="#666" stroke-width="1"/>
+  <circle cx="149" cy="69" r="6" fill="#222" stroke="#888" stroke-width="1"/>
+  <line x1="149" y1="63" x2="149" y2="67" stroke="#888" stroke-width="1.5"/>
+  <text x="149" y="92" text-anchor="middle" fill="#8b949e" font-size="7" font-family="monospace">POT</text>
+  <!-- LED indicator -->
+  <circle cx="118" cy="39" r="5" fill="#ff4444" stroke="#ff7777" stroke-width="1"/>
+  <text x="118" y="32" text-anchor="middle" fill="#ff7b72" font-size="7" font-family="monospace">LED</text>
+  <!-- 3 pins at bottom -->
+  <rect x="65" y="118" width="12" height="16" rx="2" fill="#c8a000" stroke="#e3b341" stroke-width="1"/>
+  <rect x="90" y="118" width="12" height="16" rx="2" fill="#c8a000" stroke="#e3b341" stroke-width="1"/>
+  <rect x="115" y="118" width="12" height="16" rx="2" fill="#c8a000" stroke="#e3b341" stroke-width="1"/>
+  <text x="71"  y="148" text-anchor="middle" fill="#3fb950" font-size="8" font-family="monospace">VCC</text>
+  <text x="96"  y="148" text-anchor="middle" fill="#8b949e" font-size="8" font-family="monospace">GND</text>
+  <text x="121" y="148" text-anchor="middle" fill="#58a6ff" font-size="8" font-family="monospace">DO</text>
+  <text x="100" y="14" text-anchor="middle" fill="#e6edf3" font-size="9" font-family="monospace" font-weight="bold">LDR Module 3-Pin</text>
+</svg>
+          <div class="comp-name">LDR Module</div>
+        </div>
+        <div class="comp-card">
+          <svg viewBox="0 0 220 140" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:220px">
+  <rect width="220" height="140" fill="#0d1117"/>
+  <!-- PCB -->
+  <rect x="15" y="25" width="190" height="85" rx="5" fill="#1a3d1a" stroke="#2d6b2d" stroke-width="1.5"/>
+  <!-- Left transducer -->
+  <circle cx="58" cy="67" r="24" fill="#c8c8c8" stroke="#999" stroke-width="1.5"/>
+  <circle cx="58" cy="67" r="18" fill="#a0a0a0" stroke="#888" stroke-width="1"/>
+  <circle cx="58" cy="67" r="10" fill="#787878" stroke="#666" stroke-width="1"/>
+  <text x="58" y="105" text-anchor="middle" fill="#8b949e" font-size="7.5" font-family="monospace">TRIG</text>
+  <!-- Right transducer -->
+  <circle cx="162" cy="67" r="24" fill="#c8c8c8" stroke="#999" stroke-width="1.5"/>
+  <circle cx="162" cy="67" r="18" fill="#a0a0a0" stroke="#888" stroke-width="1"/>
+  <circle cx="162" cy="67" r="10" fill="#787878" stroke="#666" stroke-width="1"/>
+  <text x="162" y="105" text-anchor="middle" fill="#8b949e" font-size="7.5" font-family="monospace">ECHO</text>
+  <!-- Label HC-SR04 -->
+  <text x="110" y="52" text-anchor="middle" fill="#e6edf3" font-size="9" font-family="monospace" font-weight="bold">HC-SR04</text>
+  <!-- 4 pins -->
+  <rect x="91"  y="108" width="10" height="14" rx="2" fill="#c8a000" stroke="#e3b341" stroke-width="1"/>
+  <rect x="104" y="108" width="10" height="14" rx="2" fill="#c8a000" stroke="#e3b341" stroke-width="1"/>
+  <rect x="117" y="108" width="10" height="14" rx="2" fill="#c8a000" stroke="#e3b341" stroke-width="1"/>
+  <rect x="130" y="108" width="10" height="14" rx="2" fill="#c8a000" stroke="#e3b341" stroke-width="1"/>
+  <text x="96"  y="132" text-anchor="middle" fill="#3fb950" font-size="7.5" font-family="monospace">VCC</text>
+  <text x="109" y="132" text-anchor="middle" fill="#ffa657" font-size="7.5" font-family="monospace">TRG</text>
+  <text x="122" y="132" text-anchor="middle" fill="#58a6ff" font-size="7.5" font-family="monospace">ECH</text>
+  <text x="135" y="132" text-anchor="middle" fill="#8b949e" font-size="7.5" font-family="monospace">GND</text>
+  <!-- Sound waves from left -->
+  <path d="M18,55 Q10,67 18,79" fill="none" stroke="#79c0ff" stroke-width="1.5" opacity="0.6"/>
+  <path d="M12,48 Q2,67 12,86"  fill="none" stroke="#79c0ff" stroke-width="1.5" opacity="0.3"/>
+  <!-- Sound waves from right -->
+  <path d="M202,55 Q210,67 202,79" fill="none" stroke="#79c0ff" stroke-width="1.5" opacity="0.6"/>
+  <path d="M208,48 Q218,67 208,86" fill="none" stroke="#79c0ff" stroke-width="1.5" opacity="0.3"/>
+  <text x="110" y="20" text-anchor="middle" fill="#79c0ff" font-size="9" font-family="monospace">Ultrasonic Sensor HC-SR04</text>
+</svg>
+          <div class="comp-name">HC-SR04</div>
+        </div>
+        <div class="comp-card">
+          <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:200px">
+  <rect width="200" height="160" fill="#0d1117"/>
+  <!-- DHT22 body (white) -->
+  <rect x="55" y="18" width="90" height="95" rx="6" fill="#e8e8e8" stroke="#aaa" stroke-width="1.5"/>
+  <!-- Sensor mesh grid -->
+  <rect x="62" y="25" width="76" height="50" rx="3" fill="#ccc" stroke="#aaa" stroke-width="1"/>
+  <line x1="75" y1="25" x2="75" y2="75" stroke="#aaa" stroke-width="0.7"/>
+  <line x1="88" y1="25" x2="88" y2="75" stroke="#aaa" stroke-width="0.7"/>
+  <line x1="101" y1="25" x2="101" y2="75" stroke="#aaa" stroke-width="0.7"/>
+  <line x1="114" y1="25" x2="114" y2="75" stroke="#aaa" stroke-width="0.7"/>
+  <line x1="62" y1="38" x2="138" y2="38" stroke="#aaa" stroke-width="0.7"/>
+  <line x1="62" y1="51" x2="138" y2="51" stroke="#aaa" stroke-width="0.7"/>
+  <line x1="62" y1="64" x2="138" y2="64" stroke="#aaa" stroke-width="0.7"/>
+  <!-- Label -->
+  <text x="100" y="88" text-anchor="middle" fill="#333" font-size="11" font-family="monospace" font-weight="bold">DHT22</text>
+  <text x="100" y="103" text-anchor="middle" fill="#555" font-size="8" font-family="monospace">AM2302</text>
+  <!-- 4 leads -->
+  <rect x="63"  y="113" width="10" height="20" rx="2" fill="#888"/>
+  <rect x="83"  y="113" width="10" height="20" rx="2" fill="#888"/>
+  <rect x="103" y="113" width="10" height="20" rx="2" fill="#888"/>
+  <rect x="123" y="113" width="10" height="20" rx="2" fill="#888"/>
+  <!-- Pin labels -->
+  <text x="68"  y="148" text-anchor="middle" fill="#3fb950" font-size="8" font-family="monospace">VCC</text>
+  <text x="88"  y="148" text-anchor="middle" fill="#58a6ff" font-size="8" font-family="monospace">DAT</text>
+  <text x="108" y="148" text-anchor="middle" fill="#8b949e" font-size="8" font-family="monospace">NC</text>
+  <text x="128" y="148" text-anchor="middle" fill="#8b949e" font-size="8" font-family="monospace">GND</text>
+  <!-- DHT11 version small note -->
+  <text x="100" y="13" text-anchor="middle" fill="#58a6ff" font-size="9" font-family="monospace">DHT11=Biru · DHT22=Putih</text>
+</svg>
+          <div class="comp-name">DHT22 Sensor</div>
+        </div>
+        <div class="comp-card">
+          <svg viewBox="0 0 220 160" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:220px">
+  <rect width="220" height="160" fill="#0d1117"/>
+  <!-- Body -->
+  <rect x="30" y="30" width="110" height="80" rx="8" fill="#1a3a6b" stroke="#2d5fa6" stroke-width="1.5"/>
+  <!-- Top cap -->
+  <rect x="40" y="24" width="90" height="16" rx="5" fill="#1a3a6b" stroke="#2d5fa6" stroke-width="1"/>
+  <!-- Gear housing circle -->
+  <circle cx="145" cy="70" r="32" fill="#222" stroke="#444" stroke-width="2"/>
+  <circle cx="145" cy="70" r="25" fill="#1a1a1a" stroke="#555" stroke-width="1.5"/>
+  <circle cx="145" cy="70" r="8"  fill="#333" stroke="#888" stroke-width="1"/>
+  <!-- Horn (white arm) -->
+  <rect x="148" y="55" width="32" height="10" rx="5" fill="#ddd" stroke="#bbb" stroke-width="1" transform="rotate(-20, 148, 60)"/>
+  <circle cx="148" cy="60" r="6" fill="#bbb" stroke="#999" stroke-width="1"/>
+  <!-- Label -->
+  <text x="85" y="65" text-anchor="middle" fill="#58a6ff" font-size="10" font-family="monospace" font-weight="bold">SG90</text>
+  <text x="85" y="80" text-anchor="middle" fill="#8b949e" font-size="8"  font-family="monospace">SERVO</text>
+  <!-- 3 wires -->
+  <line x1="50" y1="110" x2="50" y2="145" stroke="#8b949e" stroke-width="4"/>
+  <line x1="65" y1="110" x2="65" y2="145" stroke="#ff0000" stroke-width="4"/>
+  <line x1="80" y1="110" x2="80" y2="145" stroke="#ffa500" stroke-width="4"/>
+  <text x="50"  y="155" text-anchor="middle" fill="#8b949e" font-size="8" font-family="monospace">GND</text>
+  <text x="65"  y="155" text-anchor="middle" fill="#ff7b72" font-size="8" font-family="monospace">VCC</text>
+  <text x="80"  y="155" text-anchor="middle" fill="#ffa657" font-size="8" font-family="monospace">SIG</text>
+  <text x="100" y="15" text-anchor="middle" fill="#d2a8ff" font-size="9" font-family="monospace">Servo Motor SG90</text>
+</svg>
+          <div class="comp-name">Servo SG90</div>
+        </div>
+        <div class="comp-card">
+          <svg viewBox="0 0 240 155" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:240px">
+  <rect width="240" height="155" fill="#0d1117"/>
+  <!-- PCF8574 I2C module -->
+  <rect x="10" y="30" width="80" height="70" rx="4" fill="#1a1a2e" stroke="#3a3a5e" stroke-width="1.5"/>
+  <rect x="20" y="38" width="40" height="25" rx="2" fill="#222" stroke="#555" stroke-width="1"/>
+  <text x="40" y="53" text-anchor="middle" fill="#888" font-size="6.5" font-family="monospace">PCF8574</text>
+  <!-- Pot on I2C module -->
+  <rect x="65" y="52" width="14" height="14" rx="3" fill="#444" stroke="#666"/>
+  <circle cx="72" cy="59" r="4.5" fill="#222" stroke="#888"/>
+  <text x="50" y="108" text-anchor="middle" fill="#58a6ff" font-size="8" font-family="monospace">I2C Module</text>
+  <!-- I2C pins -->
+  <rect x="14" y="98" width="8" height="12" rx="1" fill="#c8a000" stroke="#e3b341"/>
+  <rect x="26" y="98" width="8" height="12" rx="1" fill="#c8a000" stroke="#e3b341"/>
+  <rect x="38" y="98" width="8" height="12" rx="1" fill="#c8a000" stroke="#e3b341"/>
+  <rect x="50" y="98" width="8" height="12" rx="1" fill="#c8a000" stroke="#e3b341"/>
+  <text x="18" y="122" text-anchor="middle" fill="#3fb950" font-size="7" font-family="monospace">GND</text>
+  <text x="30" y="122" text-anchor="middle" fill="#3fb950" font-size="7" font-family="monospace">VCC</text>
+  <text x="42" y="122" text-anchor="middle" fill="#58a6ff" font-size="7" font-family="monospace">SDA</text>
+  <text x="54" y="122" text-anchor="middle" fill="#3fb950" font-size="7" font-family="monospace">SCL</text>
+  <!-- LCD display -->
+  <rect x="100" y="20" width="130" height="90" rx="5" fill="#0a2a0a" stroke="#2d6b2d" stroke-width="2"/>
+  <!-- LCD screen area -->
+  <rect x="108" y="30" width="114" height="70" rx="3" fill="#002200" stroke="#00aa00" stroke-width="1"/>
+  <!-- Row 1 character blocks -->
+  <rect x="112" y="35" width="42" height="12" rx="1" fill="#006600" opacity="0.7"/>
+  <rect x="157" y="35" width="42" height="12" rx="1" fill="#006600" opacity="0.4"/>
+  <!-- Row 2 character blocks -->
+  <rect x="112" y="52" width="55" height="12" rx="1" fill="#006600" opacity="0.5"/>
+  <rect x="170" y="52" width="28" height="12" rx="1" fill="#006600" opacity="0.3"/>
+  <!-- Text simulation -->
+  <text x="133" y="44" fill="#00ff00" font-size="8" font-family="monospace">Hello World!</text>
+  <text x="133" y="61" fill="#00cc00" font-size="8" font-family="monospace">LCD I2C 16x2</text>
+  <!-- Backlight glow -->
+  <rect x="108" y="30" width="114" height="70" rx="3" fill="none" stroke="#00ff00" stroke-width="0.5" opacity="0.4"/>
+  <text x="165" y="125" text-anchor="middle" fill="#ff7b72" font-size="8" font-family="monospace">LCD 16x2 + I2C Module</text>
+  <!-- Contrast label -->
+  <text x="72" y="62" fill="#8b949e" font-size="6.5" font-family="monospace">CONT</text>
+  <text x="120" y="14" text-anchor="middle" fill="#8b949e" font-size="7.5" font-family="monospace">4-wire I2C → SDA(A4) SCL(A5)</text>
+</svg>
+          <div class="comp-name">LCD 16x2 I2C</div>
+        </div>
+        <div class="comp-card">
+          <svg viewBox="0 0 180 140" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:180px">
+  <rect width="180" height="140" fill="#0d1117"/>
+  <!-- Body -->
+  <rect x="50" y="30" width="80" height="70" rx="8" fill="#444" stroke="#666" stroke-width="2"/>
+  <!-- Knob circle -->
+  <circle cx="90" cy="65" r="26" fill="#333" stroke="#888" stroke-width="2"/>
+  <circle cx="90" cy="65" r="18" fill="#222" stroke="#666" stroke-width="1"/>
+  <!-- Knob indicator line -->
+  <line x1="90" y1="47" x2="90" y2="56" stroke="#aaa" stroke-width="2"/>
+  <!-- Arc scale -->
+  <path d="M65,80 A28,28 0 1,1 115,80" fill="none" stroke="#666" stroke-width="1.5" stroke-dasharray="2,3"/>
+  <!-- 3 leads -->
+  <rect x="62" y="98" width="10" height="18" rx="2" fill="#aaa"/>
+  <rect x="85" y="98" width="10" height="18" rx="2" fill="#aaa"/>
+  <rect x="108" y="98" width="10" height="18" rx="2" fill="#aaa"/>
+  <text x="67"  y="130" text-anchor="middle" fill="#3fb950" font-size="8.5" font-family="monospace">5V</text>
+  <text x="90"  y="130" text-anchor="middle" fill="#58a6ff" font-size="8.5" font-family="monospace">SIG</text>
+  <text x="113" y="130" text-anchor="middle" fill="#8b949e" font-size="8.5" font-family="monospace">GND</text>
+  <text x="90"  y="18" text-anchor="middle" fill="#e6edf3" font-size="9" font-family="monospace">Potensiometer</text>
+  <text x="90"  y="28" text-anchor="middle" fill="#8b949e" font-size="7.5" font-family="monospace">3-kaki (10kΩ)</text>
+</svg>
+          <div class="comp-name">Potensiometer</div>
+        </div>
+        <div class="comp-card">
+          <svg viewBox="0 0 220 160" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:220px">
+  <rect width="220" height="160" fill="#0d1117"/>
+  <!-- PCB -->
+  <rect x="30" y="15" width="160" height="120" rx="5" fill="#1a2a1a" stroke="#2d5a2d" stroke-width="1.5"/>
+  <!-- ESP32 chip -->
+  <rect x="70" y="35" width="80" height="55" rx="3" fill="#1a1a1a" stroke="#333" stroke-width="1"/>
+  <rect x="76" y="41" width="68" height="43" rx="2" fill="#111" stroke="#222"/>
+  <text x="110" y="60" text-anchor="middle" fill="#555" font-size="9" font-family="monospace">ESP32</text>
+  <text x="110" y="73" text-anchor="middle" fill="#444" font-size="7" font-family="monospace">Espressif</text>
+  <!-- Antenna trace -->
+  <polyline points="150,42 168,42 168,32 155,32 155,22 165,22" fill="none" stroke="#666" stroke-width="1.5"/>
+  <!-- USB port -->
+  <rect x="48" y="118" width="24" height="12" rx="2" fill="#222" stroke="#555"/>
+  <text x="60" y="127" text-anchor="middle" fill="#888" font-size="7" font-family="monospace">USB</text>
+  <!-- Reset button -->
+  <rect x="80" y="118" width="14" height="10" rx="2" fill="#c00" stroke="#f44"/>
+  <text x="87" y="126" text-anchor="middle" fill="#fff" font-size="6" font-family="monospace">RST</text>
+  <!-- Boot button -->
+  <rect x="100" y="118" width="14" height="10" rx="2" fill="#222" stroke="#555"/>
+  <text x="107" y="126" text-anchor="middle" fill="#aaa" font-size="6" font-family="monospace">EN</text>
+  <!-- Left pins -->
+  <line x1="30" y1="30" x2="20" y2="30" stroke="#c8a000" stroke-width="3"/>
+  <line x1="30" y1="42" x2="20" y2="42" stroke="#c8a000" stroke-width="3"/>
+  <line x1="30" y1="54" x2="20" y2="54" stroke="#c8a000" stroke-width="3"/>
+  <line x1="30" y1="66" x2="20" y2="66" stroke="#c8a000" stroke-width="3"/>
+  <line x1="30" y1="78" x2="20" y2="78" stroke="#c8a000" stroke-width="3"/>
+  <line x1="30" y1="90" x2="20" y2="90" stroke="#c8a000" stroke-width="3"/>
+  <!-- Right pins -->
+  <line x1="190" y1="30" x2="200" y2="30" stroke="#c8a000" stroke-width="3"/>
+  <line x1="190" y1="42" x2="200" y2="42" stroke="#c8a000" stroke-width="3"/>
+  <line x1="190" y1="54" x2="200" y2="54" stroke="#c8a000" stroke-width="3"/>
+  <line x1="190" y1="66" x2="200" y2="66" stroke="#c8a000" stroke-width="3"/>
+  <line x1="190" y1="78" x2="200" y2="78" stroke="#c8a000" stroke-width="3"/>
+  <line x1="190" y1="90" x2="200" y2="90" stroke="#c8a000" stroke-width="3"/>
+  <!-- WiFi symbol -->
+  <path d="M155,68 Q165,58 175,68" fill="none" stroke="#58a6ff" stroke-width="1.5" opacity="0.8"/>
+  <path d="M152,65 Q165,52 178,65" fill="none" stroke="#58a6ff" stroke-width="1"   opacity="0.5"/>
+  <circle cx="165" cy="71" r="2.5" fill="#58a6ff"/>
+  <text x="110" y="150" text-anchor="middle" fill="#ffa657" font-size="9" font-family="monospace">ESP32 Dev Module</text>
+  <text x="110" y="10"  text-anchor="middle" fill="#58a6ff" font-size="8.5" font-family="monospace">WiFi + Bluetooth 2.4GHz</text>
+</svg>
+          <div class="comp-name">ESP32 WiFi</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="grid grid-2">
 
     <div class="card">
       <div class="card-header"><span class="card-icon">🔌</span> Arduino Uno Pinout</div>
       <div class="card-body">
-        <table class="pin-table">
+        <div class="table-scroll"><table class="pin-table">
           <tr><th>Pin</th><th>Tipe</th><th>Keterangan</th></tr>
           <tr><td>0, 1</td><td><span class="tag tag-red">TX/RX</span></td><td>Serial – hindari saat upload</td></tr>
           <tr><td>2–13</td><td><span class="tag tag-blue">Digital</span></td><td>INPUT / OUTPUT</td></tr>
@@ -404,7 +692,7 @@
           <tr><td>A4 (SDA), A5 (SCL)</td><td><span class="tag tag-green">I2C</span></td><td>LCD, sensor digital</td></tr>
           <tr><td>5V / 3.3V / GND</td><td><span class="tag tag-orange">Power</span></td><td>Sumber tegangan</td></tr>
           <tr><td>VIN</td><td><span class="tag tag-orange">Power</span></td><td>Input eksternal 7–12V</td></tr>
-        </table>
+        </table></div>
       </div>
     </div>
 
@@ -419,7 +707,7 @@
 
         <div class="separator"></div>
         <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:12px;color:var(--muted);margin-bottom:6px;">FUNGSI PENTING</div>
-        <table class="pin-table">
+        <div class="table-scroll"><table class="pin-table">
           <tr><th>Fungsi</th><th>Keterangan</th></tr>
           <tr><td>pinMode(pin, MODE)</td><td>OUTPUT / INPUT / INPUT_PULLUP</td></tr>
           <tr><td>digitalWrite(pin, v)</td><td>HIGH atau LOW</td></tr>
@@ -429,7 +717,7 @@
           <tr><td>millis()</td><td>Waktu sejak boot (non-blocking)</td></tr>
           <tr><td>map(v,fL,fH,tL,tH)</td><td>Peta nilai antar range</td></tr>
           <tr><td>pulseIn(pin,HIGH)</td><td>Ukur durasi pulsa (µs)</td></tr>
-        </table>
+        </table></div>
       </div>
     </div>
 
@@ -438,7 +726,7 @@
   <div class="sec-title">📦 Library Wajib Install</div>
   <div class="card">
     <div class="card-body">
-      <table class="pin-table">
+      <div class="table-scroll"><table class="pin-table">
         <tr><th>Komponen</th><th>Nama Library</th><th>Author</th><th>Catatan</th></tr>
         <tr><td>DHT11 / DHT22</td><td><span style="color:var(--accent)">DHT sensor library</span></td><td>Adafruit</td><td>Juga install <i>Adafruit Unified Sensor</i></td></tr>
         <tr><td>LCD I2C</td><td><span style="color:var(--accent)">LiquidCrystal_I2C</span></td><td>Frank de Brabander</td><td>Atau johnrickman</td></tr>
@@ -446,7 +734,7 @@
         <tr><td>Servo</td><td><span style="color:var(--accent2)">Servo.h</span></td><td>Built-in</td><td>Tidak perlu install</td></tr>
         <tr><td>WiFi ESP32</td><td><span style="color:var(--accent2)">WiFi.h</span></td><td>Espressif</td><td>Install board <b>esp32 by Espressif</b> di Board Manager</td></tr>
         <tr><td>LED / Potensiometer / LDR</td><td><span style="color:var(--muted)">—</span></td><td>—</td><td>Tidak perlu library</td></tr>
-      </table>
+      </table></div>
       <div class="alert alert-info" style="margin-top:10px">📌 Cara install: <b>Sketch → Include Library → Manage Libraries</b> → ketik nama → Install</div>
     </div>
   </div>
@@ -520,23 +808,189 @@
 ════════════════════════════════════════════════════════════ -->
 <div class="panel" id="panel-ldr">
   <div class="grid grid-2">
-    <div class="card">
-      <div class="card-header"><span class="card-icon">☀️</span> LDR – Wiring (Voltage Divider)</div>
+
+    <div class="card" style="grid-column:1/-1">
+      <div class="card-header"><span class="card-icon">🔌</span> Tipe LDR – Bare vs Module 3-Pin vs Module 4-Pin</div>
       <div class="card-body">
-        <div class="wiring">
-          <div class="w-pin">5V</div><div class="w-arr">→</div><div class="w-dest red">LDR</div>
-          <div class="w-pin">LDR out</div><div class="w-arr">→ Node A →</div><div class="w-dest blue">Pin A0</div>
-          <div class="w-pin">Node A</div><div class="w-arr">→ 10kΩ →</div><div class="w-dest black">GND</div>
+        <div class="ldr-tabs">
+          <div class="ldr-tab active" onclick="switchLDR('bare')">📦 LDR Bare (2 kaki)</div>
+          <div class="ldr-tab" onclick="switchLDR('mod3')">🟢 Modul 3-Pin (DO)</div>
+          <div class="ldr-tab" onclick="switchLDR('mod4')">🔵 Modul 4-Pin (DO+AO)</div>
         </div>
-        <div class="alert alert-info" style="margin-top:10px">📐 Rangkaian voltage divider: LDR seri dengan resistor 10kΩ</div>
-        <div class="separator"></div>
-        <div class="info-row"><div class="info-label">Gelap</div><div class="info-val">Resistansi LDR ↑ → nilai analogRead ↑ (tinggi)</div></div>
-        <div class="info-row"><div class="info-label">Terang</div><div class="info-val">Resistansi LDR ↓ → nilai analogRead ↓ (rendah)</div></div>
-        <div class="info-row"><div class="info-label">Output</div><div class="info-val">analogRead(A0) → 0–1023</div></div>
-        <div class="info-row"><div class="info-label">Threshold</div><div class="info-val">Biasanya ~500, sesuaikan kondisi cahaya</div></div>
-        <div class="alert alert-warn">⚠️ Nilai bisa terbalik tergantung posisi LDR & resistor di divider</div>
-      </div>
-    </div>
+
+        <!-- BARE -->
+        <div class="ldr-panel active" id="ldr-bare">
+          <div class="grid grid-2" style="gap:10px;margin-top:8px">
+            <div>
+              <div style="text-align:center;margin-bottom:6px"><svg viewBox="0 0 160 120" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:160px">
+  <rect width="160" height="120" fill="#0d1117"/>
+  <!-- LDR body -->
+  <rect x="40" y="35" width="80" height="50" rx="25" fill="#c8a000" stroke="#e3b341" stroke-width="2"/>
+  <!-- Zigzag resistor symbol inside -->
+  <polyline points="50,60 57,48 64,72 71,48 78,72 85,48 92,72 99,48 106,72 110,60" fill="none" stroke="#1a1a1a" stroke-width="2.5" stroke-linejoin="round"/>
+  <!-- Light arrows -->
+  <line x1="20" y1="15" x2="32" y2="38" stroke="#ffd700" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="35" y1="10" x2="40" y2="34" stroke="#ffd700" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="8"  y1="25" x2="22" y2="42" stroke="#ffd700" stroke-width="1.5" marker-end="url(#arr)"/>
+  <defs><marker id="arr" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#ffd700"/></marker></defs>
+  <!-- Leads -->
+  <line x1="40" y1="60" x2="10" y2="60" stroke="#aaa" stroke-width="3"/>
+  <line x1="120" y1="60" x2="150" y2="60" stroke="#aaa" stroke-width="3"/>
+  <!-- Labels -->
+  <text x="80" y="105" text-anchor="middle" fill="#8b949e" font-size="10" font-family="monospace">LDR (2 kaki)</text>
+  <text x="12" y="55" fill="#e3b341" font-size="9" font-family="monospace">+</text>
+  <text x="143" y="55" fill="#e3b341" font-size="9" font-family="monospace">-</text>
+</svg></div>
+              <div class="alert alert-info">📐 Butuh rangkaian voltage divider dengan resistor 10kΩ</div>
+            </div>
+            <div>
+              <div class="wiring">
+                <div class="w-pin">5V</div><div class="w-arr">→</div><div class="w-dest red">LDR kaki 1</div>
+                <div class="w-pin">LDR kaki 2</div><div class="w-arr">→ Node A →</div><div class="w-dest blue">A0</div>
+                <div class="w-pin">Node A</div><div class="w-arr">→ 10kΩ →</div><div class="w-dest black">GND</div>
+              </div>
+              <div class="separator"></div>
+              <div class="info-row"><div class="info-label">Output</div><div class="info-val">analogRead(A0) → 0–1023 (nilai ANALOG)</div></div>
+              <div class="info-row"><div class="info-label">Gelap</div><div class="info-val">Nilai ↑ tinggi (resistansi LDR besar)</div></div>
+              <div class="info-row"><div class="info-label">Terang</div><div class="info-val">Nilai ↓ rendah (resistansi LDR kecil)</div></div>
+              <div class="alert alert-warn">⚠️ Tidak ada comparator – harus set threshold manual di kode</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MODULE 3-PIN -->
+        <div class="ldr-panel" id="ldr-mod3">
+          <div class="grid grid-2" style="gap:10px;margin-top:8px">
+            <div>
+              <div style="text-align:center;margin-bottom:6px"><svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:200px">
+  <rect width="200" height="160" fill="#0d1117"/>
+  <!-- PCB board -->
+  <rect x="20" y="20" width="160" height="100" rx="6" fill="#1a3d1a" stroke="#2d6b2d" stroke-width="1.5"/>
+  <!-- LM393 chip -->
+  <rect x="65" y="45" width="50" height="30" rx="3" fill="#1a1a2e" stroke="#444" stroke-width="1"/>
+  <text x="90" y="65" text-anchor="middle" fill="#888" font-size="7" font-family="monospace">LM393</text>
+  <!-- LDR component on board -->
+  <circle cx="42" cy="75" r="14" fill="#c8a000" stroke="#e3b341" stroke-width="1.5"/>
+  <polyline points="34,75 38,69 42,81 46,69 50,75" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="42" y="102" text-anchor="middle" fill="#8b949e" font-size="8" font-family="monospace">LDR</text>
+  <!-- Potentiometer -->
+  <rect x="140" y="60" width="18" height="18" rx="3" fill="#444" stroke="#666" stroke-width="1"/>
+  <circle cx="149" cy="69" r="6" fill="#222" stroke="#888" stroke-width="1"/>
+  <line x1="149" y1="63" x2="149" y2="67" stroke="#888" stroke-width="1.5"/>
+  <text x="149" y="92" text-anchor="middle" fill="#8b949e" font-size="7" font-family="monospace">POT</text>
+  <!-- LED indicator -->
+  <circle cx="118" cy="39" r="5" fill="#ff4444" stroke="#ff7777" stroke-width="1"/>
+  <text x="118" y="32" text-anchor="middle" fill="#ff7b72" font-size="7" font-family="monospace">LED</text>
+  <!-- 3 pins at bottom -->
+  <rect x="65" y="118" width="12" height="16" rx="2" fill="#c8a000" stroke="#e3b341" stroke-width="1"/>
+  <rect x="90" y="118" width="12" height="16" rx="2" fill="#c8a000" stroke="#e3b341" stroke-width="1"/>
+  <rect x="115" y="118" width="12" height="16" rx="2" fill="#c8a000" stroke="#e3b341" stroke-width="1"/>
+  <text x="71"  y="148" text-anchor="middle" fill="#3fb950" font-size="8" font-family="monospace">VCC</text>
+  <text x="96"  y="148" text-anchor="middle" fill="#8b949e" font-size="8" font-family="monospace">GND</text>
+  <text x="121" y="148" text-anchor="middle" fill="#58a6ff" font-size="8" font-family="monospace">DO</text>
+  <text x="100" y="14" text-anchor="middle" fill="#e6edf3" font-size="9" font-family="monospace" font-weight="bold">LDR Module 3-Pin</text>
+</svg></div>
+              <div class="alert alert-ok">✅ Tidak perlu resistor eksternal – sudah ada di modul!</div>
+            </div>
+            <div>
+              <div class="wiring">
+                <div class="w-pin">VCC</div><div class="w-arr">→</div><div class="w-dest red">5V Arduino</div>
+                <div class="w-pin">GND</div><div class="w-arr">→</div><div class="w-dest black">GND Arduino</div>
+                <div class="w-pin">DO</div><div class="w-arr">→</div><div class="w-dest blue">Pin Digital (e.g. 7)</div>
+              </div>
+              <div class="separator"></div>
+              <div class="info-row"><div class="info-label">DO</div><div class="info-val">Digital Output: HIGH/LOW (0 atau 1)</div></div>
+              <div class="info-row"><div class="info-label">Threshold</div><div class="info-val">Atur dengan putar potensio pada modul</div></div>
+              <div class="info-row"><div class="info-label">LED merah</div><div class="info-val">Indikator nyala jika terkena cahaya</div></div>
+              <div class="info-row"><div class="info-label">IC</div><div class="info-val">LM393 comparator sudah terintegrasi</div></div>
+              <div class="code-wrap" style="margin-top:8px">
+                <div class="code-header"><div class="code-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>ldr_3pin_digital.ino</div>
+                <pre><span class="kw">int</span> doPin <span class="num">= 7</span>; <span class="cm">// DO pin</span>
+
+<span class="kw">void</span> <span class="fn">setup</span>() {
+  <span class="fn">Serial</span>.begin(<span class="num">9600</span>);
+  <span class="fn">pinMode</span>(doPin, INPUT);
+}
+<span class="kw">void</span> <span class="fn">loop</span>() {
+  <span class="kw">int</span> val = <span class="fn">digitalRead</span>(doPin);
+  <span class="cm">// HIGH = gelap, LOW = terang (tergantung modul)</span>
+  <span class="fn">Serial</span>.println(val);
+  <span class="fn">delay</span>(<span class="num">200</span>);
+}</pre>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MODULE 4-PIN -->
+        <div class="ldr-panel" id="ldr-mod4">
+          <div class="grid grid-2" style="gap:10px;margin-top:8px">
+            <div>
+              <div style="text-align:center;margin-bottom:6px"><svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:200px">
+  <rect width="200" height="160" fill="#0d1117"/>
+  <!-- PCB board -->
+  <rect x="20" y="20" width="160" height="100" rx="6" fill="#1a3d1a" stroke="#2d6b2d" stroke-width="1.5"/>
+  <!-- LM393 chip -->
+  <rect x="65" y="45" width="50" height="30" rx="3" fill="#1a1a2e" stroke="#444" stroke-width="1"/>
+  <text x="90" y="65" text-anchor="middle" fill="#888" font-size="7" font-family="monospace">LM393</text>
+  <!-- LDR component on board -->
+  <circle cx="42" cy="75" r="14" fill="#c8a000" stroke="#e3b341" stroke-width="1.5"/>
+  <polyline points="34,75 38,69 42,81 46,69 50,75" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+  <text x="42" y="102" text-anchor="middle" fill="#8b949e" font-size="8" font-family="monospace">LDR</text>
+  <!-- Pot -->
+  <rect x="140" y="60" width="18" height="18" rx="3" fill="#444" stroke="#666" stroke-width="1"/>
+  <circle cx="149" cy="69" r="6" fill="#222" stroke="#888" stroke-width="1"/>
+  <line x1="149" y1="63" x2="149" y2="67" stroke="#888" stroke-width="1.5"/>
+  <!-- LED -->
+  <circle cx="118" cy="39" r="5" fill="#ff4444" stroke="#ff7777" stroke-width="1"/>
+  <!-- 4 pins at bottom -->
+  <rect x="50" y="118" width="12" height="16" rx="2" fill="#c8a000" stroke="#e3b341" stroke-width="1"/>
+  <rect x="75" y="118" width="12" height="16" rx="2" fill="#c8a000" stroke="#e3b341" stroke-width="1"/>
+  <rect x="100" y="118" width="12" height="16" rx="2" fill="#c8a000" stroke="#e3b341" stroke-width="1"/>
+  <rect x="125" y="118" width="12" height="16" rx="2" fill="#c8a000" stroke="#e3b341" stroke-width="1"/>
+  <text x="56"  y="148" text-anchor="middle" fill="#3fb950" font-size="8" font-family="monospace">VCC</text>
+  <text x="81"  y="148" text-anchor="middle" fill="#8b949e" font-size="8" font-family="monospace">GND</text>
+  <text x="106" y="148" text-anchor="middle" fill="#58a6ff" font-size="8" font-family="monospace">DO</text>
+  <text x="131" y="148" text-anchor="middle" fill="#ffa657" font-size="8" font-family="monospace">AO</text>
+  <text x="100" y="14" text-anchor="middle" fill="#e6edf3" font-size="9" font-family="monospace" font-weight="bold">LDR Module 4-Pin (DO+AO)</text>
+</svg></div>
+              <div class="alert alert-info">💡 Punya KEDUA output: Digital (DO) & Analog (AO)</div>
+            </div>
+            <div>
+              <div class="wiring">
+                <div class="w-pin">VCC</div><div class="w-arr">→</div><div class="w-dest red">5V Arduino</div>
+                <div class="w-pin">GND</div><div class="w-arr">→</div><div class="w-dest black">GND Arduino</div>
+                <div class="w-pin">DO</div><div class="w-arr">→</div><div class="w-dest blue">Pin Digital (e.g. 7)</div>
+                <div class="w-pin">AO</div><div class="w-arr">→</div><div class="w-dest orange">Pin Analog (A0)</div>
+              </div>
+              <div class="separator"></div>
+              <div class="info-row"><div class="info-label">DO</div><div class="info-val">Digital: HIGH/LOW – threshold dari potensio modul</div></div>
+              <div class="info-row"><div class="info-label">AO</div><div class="info-val">Analog: 0–1023 – nilai cahaya lebih presisi</div></div>
+              <div class="info-row"><div class="info-label">Keunggulan</div><div class="info-val">Bisa pakai keduanya sekaligus dalam 1 program</div></div>
+              <div class="code-wrap" style="margin-top:8px">
+                <div class="code-header"><div class="code-dots"><span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span></div>ldr_4pin_dual.ino</div>
+                <pre><span class="kw">int</span> doPin <span class="num">= 7</span>;  <span class="cm">// DO → digital</span>
+<span class="kw">int</span> aoPin <span class="num">= A0</span>; <span class="cm">// AO → analog</span>
+
+<span class="kw">void</span> <span class="fn">setup</span>() {
+  <span class="fn">Serial</span>.begin(<span class="num">9600</span>);
+  <span class="fn">pinMode</span>(doPin, INPUT);
+}
+<span class="kw">void</span> <span class="fn">loop</span>() {
+  <span class="kw">int</span> digital = <span class="fn">digitalRead</span>(doPin);
+  <span class="kw">int</span> analog  = <span class="fn">analogRead</span>(aoPin);
+  <span class="fn">Serial</span>.print(<span class="str">"DO:"</span>); <span class="fn">Serial</span>.print(digital);
+  <span class="fn">Serial</span>.print(<span class="str">" AO:"</span>); <span class="fn">Serial</span>.println(analog);
+  <span class="fn">delay</span>(<span class="num">300</span>);
+}</pre>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- card-body -->
+    </div><!-- card -->
+
     <div class="card">
       <div class="card-header"><span class="card-icon">💻</span> Kode – LED Otomatis (LDR)</div>
       <div class="card-body">
@@ -642,14 +1096,14 @@
     <div class="card">
       <div class="card-header"><span class="card-icon">🌡️</span> DHT11 vs DHT22</div>
       <div class="card-body">
-        <table class="pin-table">
+        <div class="table-scroll"><table class="pin-table">
           <tr><th>Fitur</th><th>DHT11</th><th>DHT22</th></tr>
           <tr><td>Suhu</td><td>0–50°C (±2°C)</td><td>-40–80°C (±0.5°C)</td></tr>
           <tr><td>Kelembaban</td><td>20–80% (±5%)</td><td>0–100% (±2–5%)</td></tr>
           <tr><td>Sampling</td><td>~1 Hz</td><td>~0.5 Hz (lebih lambat)</td></tr>
           <tr><td>Warna modul</td><td><span class="tag tag-blue">Biru</span></td><td><span style="color:var(--text)">Putih</span></td></tr>
           <tr><td>Akurasi</td><td>Lebih rendah</td><td><span class="tag tag-green">Lebih akurat</span></td></tr>
-        </table>
+        </table></div>
         <div class="separator"></div>
         <b style="font-size:12px;color:var(--muted);">WIRING (DHT11 & DHT22 sama)</b>
         <div class="wiring" style="margin-top:8px">
@@ -791,7 +1245,7 @@ Servo myServo;
         <div class="info-row"><div class="info-label">Tanpa I2C</div><div class="info-val">Butuh 6 pin digital (pin 2,3,4,5,11,12)</div></div>
         <div class="separator"></div>
         <b style="font-size:12px;color:var(--muted)">FUNGSI LCD</b>
-        <table class="pin-table" style="margin-top:6px">
+        <div class="table-scroll"><table class="pin-table" style="margin-top:6px">
           <tr><th>Fungsi</th><th>Keterangan</th></tr>
           <tr><td>lcd.init()</td><td>Inisialisasi LCD</td></tr>
           <tr><td>lcd.backlight()</td><td>Nyalakan backlight</td></tr>
@@ -799,7 +1253,7 @@ Servo myServo;
           <tr><td>lcd.setCursor(col, row)</td><td>Pindah kursor (0-indexed)</td></tr>
           <tr><td>lcd.print("teks")</td><td>Tampilkan teks</td></tr>
           <tr><td>lcd.clear()</td><td>Bersihkan layar</td></tr>
-        </table>
+        </table></div>
         <div class="alert alert-warn" style="margin-top:8px">⚠️ Jika layar kosong tapi backlight nyala → putar potensio contrast di balik modul I2C</div>
       </div>
     </div>
@@ -867,13 +1321,13 @@ LiquidCrystal <span class="fn">lcd</span>(<span class="num">12</span>, <span cla
         <div class="alert alert-warn" style="margin-top:10px">⚠️ WiFi ESP32 hanya mendukung jaringan <b>2.4 GHz</b>, tidak bisa 5 GHz!</div>
         <div class="separator"></div>
         <b style="font-size:12px;color:var(--muted)">STATUS WiFi</b>
-        <table class="pin-table" style="margin-top:6px">
+        <div class="table-scroll"><table class="pin-table" style="margin-top:6px">
           <tr><th>Konstanta</th><th>Arti</th></tr>
           <tr><td>WL_CONNECTED</td><td>Berhasil terhubung</td></tr>
           <tr><td>WL_DISCONNECTED</td><td>Tidak terhubung</td></tr>
           <tr><td>WL_NO_SSID_AVAIL</td><td>SSID tidak ditemukan</td></tr>
           <tr><td>WL_CONNECT_FAILED</td><td>Password salah</td></tr>
-        </table>
+        </table></div>
       </div>
     </div>
     <div class="card">
@@ -1195,7 +1649,7 @@ LiquidCrystal_I2C <span class="fn">lcd</span>(<span class="num">0x27</span>, <sp
   <div class="sec-title">🔧 Troubleshooting Cepat</div>
   <div class="card">
     <div class="card-body">
-      <table class="pin-table">
+      <div class="table-scroll"><table class="pin-table">
         <tr><th>Masalah</th><th>Solusi</th></tr>
         <tr><td>LCD kosong, backlight nyala</td><td>Putar potensio contrast di belakang modul I2C; atau coba address 0x3F</td></tr>
         <tr><td>DHT baca NaN</td><td>Cek wiring, tunggu 2 detik antar baca, pastikan DHTTYPE benar</td></tr>
@@ -1205,7 +1659,7 @@ LiquidCrystal_I2C <span class="fn">lcd</span>(<span class="num">0x27</span>, <sp
         <tr><td>WiFi tidak konek</td><td>Pastikan 2.4GHz (bukan 5GHz), SSID/password benar, baud rate 115200</td></tr>
         <tr><td>Library not found</td><td>Sketch → Include Library → Manage Libraries → install</td></tr>
         <tr><td>isnan() terus return</td><td>Cek kabel DATA DHT, tambah delay(2000) sebelum baca pertama</td></tr>
-      </table>
+      </table></div>
     </div>
   </div>
 
@@ -1363,6 +1817,17 @@ const IMGS = {
     }
   }
 })();
+</script>
+
+
+<script>
+function switchLDR(type) {
+  document.querySelectorAll('.ldr-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.ldr-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('ldr-' + type).classList.add('active');
+  const idx = {bare:0, mod3:1, mod4:2}[type];
+  document.querySelectorAll('.ldr-tab')[idx].classList.add('active');
+}
 </script>
 
 </body>
